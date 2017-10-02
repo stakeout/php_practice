@@ -8,19 +8,34 @@
     <link href="/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<header>
-    <div>LOGO</div>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="/index.php?module=errors&page=404">404</a>
-        <a href="/index.php?module=task-1&page=task-1">Задание 1</a>
-        <a href="/index.php?module=task-2&page=main">Задание 2</a>
-        <a href="/index.php?module=task-3&page=main">Задание 3</a>
-    </nav>
-</header>
-<div id="content">
-    <?php include $_GET['module'].'/'.$_GET['page'].'.tpl'; ?>
+<div class="page-wrapper">
+    <header class="page-header">
+        <div class="container wrapper">
+        <div class="logo">
+            <img src="/img/logo-mini-2.jpg" width="220" height="70" alt="">
+        </div>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="/index.php?module=task-1&page=main">Задание 1</a>
+            <a href="/index.php?module=task-2&page=main">Задание 2</a>
+            <a href="/index.php?module=task-3&page=main">Задание 3</a>
+        </nav>
+        </div>
+    </header>
+    <main class="page-content container">
+        <?php include $_GET['module'].'/'.$_GET['page'].'.tpl'; ?>
+    </main>
+    <footer class="page-footer container">
+        <?php
+            echo '<pre>';
+                print_r($_POST);
+                print_r($_COOKIE);
+                echo $login;
+                echo $pass;
+                echo $mail;
+            echo '</pre>';
+        ?>
+    </footer>
 </div>
-<footer>футер</footer>
 </body>
 </html>

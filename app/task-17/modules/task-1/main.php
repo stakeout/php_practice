@@ -1,3 +1,17 @@
 <?php
-//include './modules/'.$_GET['module'].'/'.$_GET['page'].'.php';
-//include './templates/'.DEFAULT_SKIN.'/task-3/main.tpl';
+if(isset($_POST['login'],$_POST['password'],$_POST['email'])){
+    if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['email'])){
+        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            $_SESSION['login'] = $_POST['login'];
+            $_SESSION['pass'] = $_POST['password'];
+            $_SESSION['mail'] = $_POST['email'];
+            setcookie('access','1', time()+3600, '/');
+            header("Location: /index.php?module=task-1&page=main");
+            exit();
+        }else{
+            $alert =  'Введите правильный email';
+        }
+    }else{
+        $alert =  'Введите все данные';
+    }
+}

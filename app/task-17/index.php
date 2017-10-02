@@ -7,8 +7,10 @@ session_start();
 //Конфиг проекта
 include_once './config.php';
 include_once './variables.php';
+include_once './modules/task-1/main.php';
 
 //router
 include './modules/'.$_GET['module'].'/'.$_GET['page'].'.php';
 include './templates/'.DEFAULT_SKIN.'/index.tpl';
+
 

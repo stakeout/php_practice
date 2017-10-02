@@ -1,4 +1,5 @@
 <?php
+$msg = $alert = $login = $pass = $mail = '';
 $pages = array('main','task-1','task-2','task-3','404');
 $modules = array('task-1','task-2','task-3','errors','static');
 if(!isset($_GET['module'])) {
