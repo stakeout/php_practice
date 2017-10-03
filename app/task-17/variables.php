@@ -14,3 +14,4 @@ if(!isset($_GET['page'])){
     header("Location: /index.php?module=errors&page=404");
     exit();
 }
+

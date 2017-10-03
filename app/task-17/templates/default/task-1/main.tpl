@@ -25,10 +25,10 @@
                value="<?php echo (!empty($_SESSION['mail']) ? $_SESSION['mail'] : ''); ?>">
     </label>
     <?php
-    if(isset($_COOKIE['access'])){
-      echo '<input type="reset" name="reset" value="Выйти">';
-    }else{
-         echo '<input type="submit" name="submit" value="Войти">';
-    }
+        if(isset($_COOKIE['access'])){
+            echo '<input type="submit" class="form-btn" name="logout" value="Выйти">';
+        }else{
+            echo '<input type="submit" class="form-btn" name="submit" value="Войти">';
+        }
     ?>
 </form>

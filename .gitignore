@@ -17,3 +17,4 @@ package-lock.json
 **/sprite_96.*
 **/svg-fallback-sprite.*
 **/svg-sprite.*
+*.zip

@@ -15,3 +15,8 @@ if(isset($_POST['login'],$_POST['password'],$_POST['email'])){
         $alert =  'Введите все данные';
     }
 }
+if(isset($_POST['logout'])){
+    setcookie('access','123',time()-3600,'/');
+    header("Location: /index.php?module=task-1&page=main");
+    exit();
+};

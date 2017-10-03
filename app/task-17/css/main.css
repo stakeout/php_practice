@@ -75,11 +75,12 @@ ul,h1,h2,h3{
     border: none;
 }
 input[type='submit'],
-input[type='reset'] {
+input[type='button'],
+.form-btn{
     border: none;
-    display: inline-block;
-    vertical-align: top;
-    padding: 10px;
+    display: block;
+    width: 140px;
+    padding: 10px 0;
     color: white;
     background-color: #0099FF;
     border-radius: 5px;
@@ -89,12 +90,63 @@ input[type='submit'] {
     margin-right: 30px;
 }
 input[type='submit']:hover,
-input[type='reset']:hover {
+input[type='button']:hover {
     background-color: #00ccff;
 }
-input[name='exit'] {
-    display: block;
-    margin: 10px auto 0;
+.form-btn{
+    margin: 0 auto;
+    text-align: center;
+}
+/*task-2*/
+.fight-wrapper{
+    width: 300px;
+    margin: 0 auto;
+}
+.player span {
+    font-weight: 700;
+}
+.player{
+    flex-basis: 50%;
+    height: 235px;
+}
+.players{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 10px 20px;
+}
+.orc,
+.elf {
+    position: relative;
+}
+.orc .image{
+    height: 100%;
+    background: url(/../img/orcfighter.png) no-repeat 0 5px;
+    background-size: 150px 215px;
+}
+.orc.loose .image{
+    animation: elf-win 3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+.elf .image{
+    height: 100%;
+    background: url(/../img/elf.jpg) no-repeat -30px 5px;
+    background-size: 150px 215px;
+}
+.elf.loose .image {
+    animation: ork-win 3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes ork-win{
+    0%{}
+    80%{transform: skew(30deg, 30deg)}
+    100%{transform: rotate(-90deg) translate(-45px, -55px);}
+}
+@keyframes elf-win{
+    0%{}
+    100%{transform: rotate(90deg) translate(45px, -60px);}
 }
 .hidden{
     display: none;

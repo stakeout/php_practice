@@ -16,7 +16,7 @@ if(isset($_POST['login'],$_POST['password'],$_POST['email'])){
         echo 'Введите все данные';
     }
 }else{
-    echo 'не переданы данные'; // что лучше делать здесь, если данные не были переданы? нужна ли вообще данная проверка
+    echo 'не переданы данные';
 }
 ?>
 <!DOCTYPE html>
@@ -39,15 +39,15 @@ if(isset($_POST['login'],$_POST['password'],$_POST['email'])){
             </div>
             <label for="login">
                 <p>Логин</p>
-                <input type="text" name="login" id="login" value="<?php echo (isset($_POST['login']) ? $_POST['login'] : '');?>">
+                <input type="text" name="login" id="login" value="">
             </label>
             <label for="password">
                 <p>Пароль</p>
-                <input type="password" name="password" id="password" value="<?php echo (isset($_POST['password']) ? $_POST['password'] : '');?>">
+                <input type="password" name="password" id="password" value="">
             </label>
             <label for="email">
                 <p>Почта</p>
-                <input type="text" name="email" id="email" value="<?php echo(isset($_POST['email']) ? $_POST['email'] : '');?>">
+                <input type="text" name="email" id="email" value="">
             </label>
             <input type="submit" name="submit" value="Отправить">
             <input type="reset" name="reset" value="Очистить">
