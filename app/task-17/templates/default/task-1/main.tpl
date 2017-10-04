@@ -26,7 +26,7 @@
     </label>
     <?php
         if(isset($_COOKIE['access'])){
-            echo '<input type="submit" class="form-btn" name="logout" value="Выйти">';
+            echo '<a href="/index.php?module=task-1&page=main&logout=1" class="form-btn" name="logout">Выход</a>';
         }else{
             echo '<input type="submit" class="form-btn" name="submit" value="Войти">';
         }

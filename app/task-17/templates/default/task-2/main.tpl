@@ -8,13 +8,13 @@
     </form>
     <div class="players">
         <?php
-                if(isset($_SESSION['player'],$_SESSION['comp'])){
-                    echo '<div class="player elf
-                        '.(isset($_GET['result']) && $_SESSION['player'] <= 0 ? $_GET['result'] : '').'">
-                    <span class=\'hp\'>игрок - '.$_SESSION['player'].' хп</span>
-                    <div class=\'image\'></div></div>';
-                    echo '<div class="player orc '.(isset($_GET['result']) && $_SESSION['comp'] <= 0 ? $_GET['result'] : '').'"><span class=\'hp\'>комп - '.$_SESSION['comp'].' хп</span><div class=\'image\'></div></div>';
-                }
+            if(isset($_SESSION['player'],$_SESSION['comp'])){
+                echo '<div class="player elf
+                    '.(isset($_GET['result']) && $_SESSION['player'] <= 0 ? $_GET['result'] : '').'">
+                <span class=\'hp\'>игрок - '.$_SESSION['player'].' хп</span>
+                <div class=\'image\'></div></div>';
+                echo '<div class="player orc '.(isset($_GET['result']) && $_SESSION['comp'] <= 0 ? $_GET['result'] : '').'"><span class=\'hp\'>комп - '.$_SESSION['comp'].' хп</span><div class=\'image\'></div></div>';
+            }
         ?>
     </div>
     <div class="result">

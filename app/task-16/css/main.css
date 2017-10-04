@@ -122,3 +122,8 @@ input[name='exit'] {
     font-family: tahoma;
     font-size: 14px;
 }
+/*task-3*/
+.dir > a{
+    font-size: 16px;
+    color: #000;
+}

@@ -148,6 +148,18 @@ input[type='button']:hover {
     0%{}
     100%{transform: rotate(90deg) translate(45px, -60px);}
 }
+/*tak-3*/
+.file-system{
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.dir > a{
+    font-size: 18px;
+    color: #000;
+
+}
 .hidden{
     display: none;
 }
