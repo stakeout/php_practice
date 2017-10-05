@@ -4,12 +4,13 @@ if (!isset($_SESSION['player'])) {
     $_SESSION['comp'] = 7;
     $_SESSION['msg'] = '';
 }
-if (isset($_GET['number'])) {
-    if (!empty((int)$_GET['number'])) {
-        if ($_GET['number'] >= 1 && $_GET['number'] <= 3) {
+if(isset($_POST['fight'])){
+if (isset($_POST['number'])) {
+    if (!empty((int)$_POST['number'])) {
+        if ($_POST['number'] >= 1 && $_POST['number'] <= 3) {
             $pos = rand(1, 3);
             $damage = rand(1, 4);
-            if ($_GET['number'] == $pos) {
+            if ($_POST['number'] == $pos) {
                 $_SESSION['comp'] -= $damage;
                 $_SESSION['msg'] = 'вы нанесли компу ' . $damage;
             } else {
@@ -23,17 +24,18 @@ if (isset($_GET['number'])) {
         $_SESSION['msg'] = 'Введите число!';
     }
 }
+    header('Location: /index.php?module=task-2&page=main');
+    exit;
+}
 switch ($_SESSION) {
     case $_SESSION['player'] <= 0:
         $_SESSION['msg'] = 'Победил компьютер!';
-        $_GET['result'] = 'loose';
-        header('location: ./gameover.php');
-        exit();
+        header('location: /index.php?module=task-2&page=gameover');
+        exit;
         break;
     case $_SESSION['comp'] <= 0:
         $_SESSION['msg'] = 'Победил человек!';
-        $_GET['result'] = 'loose';
-        header('location: ./gameover.php');
-        exit();
+        header('location: /index.php?module=task-2&page=gameover');
+        exit;
         break;
 }

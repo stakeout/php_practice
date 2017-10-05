@@ -1,5 +1,5 @@
 <div class="fight-wrapper">
-    <form class="form" action="" method="get">
+    <form class="form" method="post">
         <label for="number">
             <p>Напишите число от 1 до 3</p>
             <input type="text" name="number" id="number" value="" autocomplete="off" autofocus>
@@ -9,11 +9,8 @@
     <div class="players">
         <?php
             if(isset($_SESSION['player'],$_SESSION['comp'])){
-                echo '<div class="player elf
-                    '.(isset($_GET['result']) && $_SESSION['player'] <= 0 ? $_GET['result'] : '').'">
-                <span class=\'hp\'>игрок - '.$_SESSION['player'].' хп</span>
-                <div class=\'image\'></div></div>';
-                echo '<div class="player orc '.(isset($_GET['result']) && $_SESSION['comp'] <= 0 ? $_GET['result'] : '').'"><span class=\'hp\'>комп - '.$_SESSION['comp'].' хп</span><div class=\'image\'></div></div>';
+                echo '<div class="player elf"><span class="hp">игрок - '.$_SESSION['player'].' хп</span><div class="image"></div></div>';
+                echo '<div class="player orc"><span class="hp">комп - '.$_SESSION['comp'].' хп</span><div class="image"></div></div>';
             }
         ?>
     </div>

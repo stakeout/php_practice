@@ -1,6 +1,6 @@
 <?php
 $msg = $alert = $login = $pass = $mail = '';
-$pages = array('main','task-1','task-2','task-3','404');
+$pages = array('main','task-1','task-2','task-3','404','logout','gameover');
 $modules = array('task-1','task-2','task-3','errors','static');
 if(!isset($_GET['module'])) {
     $_GET['module'] = 'static';
