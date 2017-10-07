@@ -1,2 +1,2 @@
 <p><?php echo $_SESSION['msg']; ?></p>
-<a href='/index.php?module=task-2&page=main'>Начать игру заново</a>
+<a href='/index.php?module=task-2'>Начать игру заново</a>

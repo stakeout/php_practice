@@ -26,17 +26,7 @@
         <?php include $_GET['module'].'/'.$_GET['page'].'.tpl'; ?>
     </main>
     <footer class="page-footer container">
-        <?php
-            echo '<pre>';
-                print_r($_SESSION);
-                print_r($_POST);
-                print_r($_GET);
-                print_r($_COOKIE);
-                echo $login;
-                echo $pass;
-                echo $mail;
-            echo '</pre>';
-        ?>
+        футер
     </footer>
 </div>
 </body>

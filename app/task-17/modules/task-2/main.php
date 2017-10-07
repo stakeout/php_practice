@@ -4,26 +4,26 @@ if (!isset($_SESSION['player'])) {
     $_SESSION['comp'] = 7;
     $_SESSION['msg'] = '';
 }
-if(isset($_POST['fight'])){
-if (isset($_POST['number'])) {
-    if (!empty((int)$_POST['number'])) {
-        if ($_POST['number'] >= 1 && $_POST['number'] <= 3) {
-            $pos = rand(1, 3);
-            $damage = rand(1, 4);
-            if ($_POST['number'] == $pos) {
-                $_SESSION['comp'] -= $damage;
-                $_SESSION['msg'] = 'вы нанесли компу ' . $damage;
+if(isset($_POST['fight'])) {
+    if (isset($_POST['number'])) {
+        if (!empty((int)$_POST['number'])) {
+            if ($_POST['number'] >= 1 && $_POST['number'] <= 3) {
+                $pos = rand(1, 3);
+                $damage = rand(1, 4);
+                if ($_POST['number'] == $pos) {
+                    $_SESSION['comp'] -= $damage;
+                    $_SESSION['msg'] = 'вы нанесли компу ' . $damage;
+                } else {
+                    $_SESSION['player'] -= $damage;
+                    $_SESSION['msg'] = 'комп жахнул вам ' . $damage;
+                }
             } else {
-                $_SESSION['player'] -= $damage;
-                $_SESSION['msg'] = 'комп жахнул вам ' . $damage;
+                $_SESSION['msg'] = 'Число должно быть от 1 до 3';
             }
         } else {
-            $_SESSION['msg'] = 'Число должно быть от 1 до 3';
+            $_SESSION['msg'] = 'Введите число!';
         }
-    } else {
-        $_SESSION['msg'] = 'Введите число!';
     }
-}
     header('Location: /index.php?module=task-2&page=main');
     exit;
 }

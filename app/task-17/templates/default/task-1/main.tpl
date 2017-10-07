@@ -1,9 +1,6 @@
 <form class="form" action="" method="post">
     <div class="hello">
         <?php
-           if(isset($_COOKIE['access']) && $_COOKIE['access'] == 1){
-                $msg = 'Привет админ';
-            }
            if(!empty($msg) || !empty($alert)){
                echo '<p>'.$msg.$alert.'</p>';
            }
@@ -24,11 +21,5 @@
         <input type="text" name="email" id="email"
                value="<?php echo (!empty($_SESSION['mail']) ? $_SESSION['mail'] : ''); ?>">
     </label>
-    <?php
-        if(isset($_COOKIE['access'])){
-            echo '<a href="/index.php?module=task-1&page=main&logout=1" class="form-btn" name="logout">Выход</a>';
-        }else{
-            echo '<input type="submit" class="form-btn" name="submit" value="Войти">';
-        }
-    ?>
+    <input type="submit" class="form-btn" name="submit" value="Войти">
 </form>

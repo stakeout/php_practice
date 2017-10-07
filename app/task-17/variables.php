@@ -10,8 +10,5 @@ if(!isset($_GET['module'])) {
 }
 if(!isset($_GET['page'])){
     $_GET['page'] = 'main';
-} elseif(!in_array($_GET['page'],$pages)){
-    header("Location: /index.php?module=errors&page=404");
-    exit();
 }
 
