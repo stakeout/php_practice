@@ -19,6 +19,11 @@
             <a href="/index.php?module=task-1&page=main">Задание 1</a>
             <a href="/index.php?module=task-2&page=main">Задание 2</a>
             <a href="/index.php?module=task-3&page=main">Задание 3</a>
+            <?php
+                if(isset($_COOKIE['access'])){
+                    echo "<a href='/index.php?module=task-1&page=logout' class='exit'>Выход</a>";
+                }
+            ?>
         </nav>
         </div>
     </header>

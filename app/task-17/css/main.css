@@ -52,6 +52,9 @@ ul,h1,h2,h3{
     width: 220px;
 }
 /*task-1*/
+.exit{
+    margin-left: 50px;
+}
 .form {
     width: 300px;
     margin: 0 auto;
