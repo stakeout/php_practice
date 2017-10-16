@@ -1,0 +1,200 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    box-sizing: content-box;
+}
+a{
+    text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+ul,h1,h2,h3{
+    margin: 0;
+    padding: 0;
+}
+.page-wrapper  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #c5c5c5;
+}
+.page-content{
+    flex-grow: 1;
+}
+.container {
+    width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.page-header{
+    margin-bottom: 60px;
+}
+.page-header .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 220px;
+}
+/*task-1*/
+.exit{
+    margin-left: 50px;
+}
+.form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px 50px;
+    background-color: #ccc;
+    border-radius: 10px;
+}
+.form label {
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.form p {
+    margin: 10px 0 5px;
+    padding: 0;
+}
+.form input:not([type='submit']):not([type='reset']) {
+    width: 100%;
+    padding: 8px 0 8px 15px;
+    border-radius: 5px;
+    border: none;
+}
+input[type='submit'],
+input[type='button'],
+.form-btn{
+    border: none;
+    display: block;
+    width: 140px;
+    padding: 10px 0;
+    color: white;
+    background-color: #0099FF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type='submit'] {
+    margin-right: 30px;
+}
+input[type='submit']:hover,
+input[type='button']:hover {
+    background-color: #00ccff;
+}
+.form-btn{
+    margin: 0 auto;
+    text-align: center;
+}
+/*task-2*/
+.fight-wrapper{
+    width: 300px;
+    margin: 0 auto;
+}
+.player span {
+    font-weight: 700;
+}
+.player{
+    flex-basis: 50%;
+    height: 235px;
+}
+.players{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 10px 20px;
+}
+.orc,
+.elf {
+    position: relative;
+}
+.orc .image{
+    height: 100%;
+    background: url(/../img/orcfighter.png) no-repeat 0 5px;
+    background-size: 150px 215px;
+}
+.orc.loose .image{
+    animation: elf-win 3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+.elf .image{
+    height: 100%;
+    background: url(/../img/elf.jpg) no-repeat -30px 5px;
+    background-size: 150px 215px;
+}
+.elf.loose .image {
+    animation: ork-win 3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes ork-win{
+    0%{}
+    80%{transform: skew(30deg, 30deg)}
+    100%{transform: rotate(-90deg) translate(-45px, -55px);}
+}
+@keyframes elf-win{
+    0%{}
+    100%{transform: rotate(90deg) translate(45px, -60px);}
+}
+/*tak-3*/
+.file-system{
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.dir > a{
+    font-size: 18px;
+    color: #000;
+
+}
+.hidden{
+    display: none;
+}
+/*19-20 задания*/
+.registration-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.registration,
+.result{
+    flex-basis: 50%;
+}
+.registration label{
+    display: block;
+}
+.registration input[type=submit]{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30px;
+}
+.registration input:not([type=submit]){
+    width: 300px;
+    height: 35px;
+    padding-left: 20px;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    border-radius: 10px;
+    border:none;
+}
+.result{
+    border-left: 1px dotted black;
+}
+.result h2{
+    text-align: center;
+}
