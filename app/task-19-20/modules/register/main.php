@@ -20,6 +20,17 @@ if (isset($_POST['name'],$_POST['surname'], $_POST['age'], $_POST['password'], $
         $errors['country'] = 'Напишите откуда вы';
     }
     if(!count($errors)){
-//            mysqli_query();
+        mysqli_query($link,
+            "
+            INSERT INTO `users` SET
+            `name` = '".mysqli_real_escape_string($link,$_POST['name'])."',
+            `surname` = '".mysqli_real_escape_string($link,$_POST['surname'])."',
+            `age` = ".(int)$_POST['age'].",
+            `password` = ".(int)$_POST['password'].",
+            `country` = '".mysqli_real_escape_string($link,$_POST['country'])."',
+            `mail` = '".mysqli_real_escape_string($link,$_POST['email'])."'
+            ") or exit(mysqli_error($link));
+        mysqli_close($link);
+        header('location: /index.php?module=register&page=success');
     }
 }
