@@ -34,5 +34,11 @@
     </form>
     <div class="result">
         <h2>Вывод данных</h2>
+        <?php if(mysqli_num_rows($res)){
+                    while($row = mysqli_fetch_assoc($res)){
+                        echo '<p>'.(int)$row['id'].htmlspecialchars($row['name']);
+                    }
+                }
+        ?>
     </div>
 </div>
