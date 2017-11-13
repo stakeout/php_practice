@@ -35,5 +35,10 @@ if (isset($_POST['name'],$_POST['surname'], $_POST['age'], $_POST['password'], $
         exit;
     }
 }
-    $res = mysqli_query($link, "SELECT * FROM `users` ORDER BY `id` limit 15") or exit(mysqli_error($link));
-
+$limit = 5;
+$GET['page'] = 1;
+$count = ($_GET['page'] - 1) * $limit;
+$page_count = ceil($count / $limit);
+$output = $count.','.$limit;
+$res = mysqli_query($link, "SELECT * FROM users ORDER BY id limit 5") or exit(mysqli_error($link));
+$number = mysqli_num_rows($res);

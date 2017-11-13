@@ -96,73 +96,7 @@ input[type='submit']:hover,
 input[type='button']:hover {
     background-color: #00ccff;
 }
-.form-btn{
-    margin: 0 auto;
-    text-align: center;
-}
-/*task-2*/
-.fight-wrapper{
-    width: 300px;
-    margin: 0 auto;
-}
-.player span {
-    font-weight: 700;
-}
-.player{
-    flex-basis: 50%;
-    height: 235px;
-}
-.players{
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 15px 10px 20px;
-}
-.orc,
-.elf {
-    position: relative;
-}
-.orc .image{
-    height: 100%;
-    background: url(/../img/orcfighter.png) no-repeat 0 5px;
-    background-size: 150px 215px;
-}
-.orc.loose .image{
-    animation: elf-win 3s ease-in-out;
-    animation-fill-mode: forwards;
-}
-.elf .image{
-    height: 100%;
-    background: url(/../img/elf.jpg) no-repeat -30px 5px;
-    background-size: 150px 215px;
-}
-.elf.loose .image {
-    animation: ork-win 3s ease-in-out;
-    animation-fill-mode: forwards;
-}
-@keyframes ork-win{
-    0%{}
-    80%{transform: skew(30deg, 30deg)}
-    100%{transform: rotate(-90deg) translate(-45px, -55px);}
-}
-@keyframes elf-win{
-    0%{}
-    100%{transform: rotate(90deg) translate(45px, -60px);}
-}
-/*tak-3*/
-.file-system{
-    width: 200px;
-    padding: 20px;
-    margin: 0 auto;
-    background-color: #fff;
-}
-.dir > a{
-    font-size: 18px;
-    color: #000;
 
-}
 .hidden{
     display: none;
 }
@@ -175,8 +109,16 @@ input[type='button']:hover {
 .result{
     flex-basis: 50%;
 }
+.registration {
+    padding-right: 50px;
+}
 .registration label{
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.registration input {
+    margin-left: auto;
 }
 .registration input[type=submit]{
     display: inline-block;
@@ -197,4 +139,105 @@ input[type='button']:hover {
 }
 .result h2{
     text-align: center;
+}
+/* 19- 21 задание */
+.reviews {
+    width: 600px;
+    margin: 0 auto;
+}
+.add-comment {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.reviews-form {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 50px;
+    color: white;
+    border-radius: 10px;
+    background-color: #666;
+}
+.reviews-form h2 {
+    margin-bottom: 20px;
+}
+.reviews-form label {
+    flex-basis: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.reviews-form label:last-of-type span {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.reviews-form input:not([type=submit]) {
+    height: 40px;
+    width: 350px;
+    margin-left: auto;
+    padding: 0 15px;
+    border: none;
+    border-radius: 10px;
+}
+.reviews-form input[type=submit]{
+    margin-right: 0;
+}
+.reviews-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    resize: vertical;
+}
+.reviews-form input.error,
+textarea.error{
+    border: 2px solid red;
+}
+/* комментарий блок */
+.review-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid rgba(0,0,0,.3);
+    border-radius: 10px;
+    word-wrap: break-words;
+}
+.review-item::before {
+    position: absolute;
+    content: attr(data-number);
+    font-style: 18px;
+    font-weight: 700;
+    left: -15px;
+    top: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+.review__info {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.review__author {
+    padding-right: 5px;
+    padding-left: 10px;
+    font-family: Tahoma;
+    font-weight: 700;
+}
+.review__town {
+    margin-right: auto;
+    padding-left: 5px;
+    font-family: Tahoma;
+    font-weight: 700;
+}
+.review__text {
+    padding: 5px;
+    background-color: #fff;
 }

@@ -16,10 +16,8 @@
         </div>
         <nav>
             <a href="/">Главная</a>
-            <a href="/index.php?module=task-1&page=main">Задание 1</a>
-            <a href="/index.php?module=task-2&page=main">Задание 2</a>
-            <a href="/index.php?module=task-3&page=main">Задание 3</a>
-            <a href="/index.php?module=register&page=main">Регистрация</a>
+            <a href="/index.php?module=reviews">Отзывы</a>
+            <a href="/index.php?module=register">Регистрация</a>
             <?php
                 if(isset($_COOKIE['access'])){
                     echo "<a href='/index.php?module=task-1&page=logout' class='exit'>Выход</a>";
