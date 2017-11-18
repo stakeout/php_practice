@@ -11,19 +11,20 @@
 <div class="page-wrapper">
     <header class="page-header">
         <div class="container wrapper">
-        <div class="logo">
-            <img src="/img/logo-mini-2.jpg" width="220" height="70" alt="">
-        </div>
-        <nav>
-            <a href="/">Главная</a>
-            <a href="/index.php?module=reviews">Отзывы</a>
-            <a href="/index.php?module=register">Войти</a>
-            <?php
-                if(isset($_COOKIE['access'])){
-                    echo "<a href='/index.php?module=task-1&page=logout' class='exit'>Выход</a>";
-                }
-            ?>
-        </nav>
+            <div class="logo">
+                <img src="/img/logo-mini-2.jpg" width="220" height="70" alt="">
+            </div>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/index.php?module=reviews">Отзывы</a>
+                <a href="/index.php?module=goods">Товары</a>
+                <?php
+                    if(isset($_COOKIE['auth']) && $_COOKIE['auth'] == true) {
+                        echo "<a href='/index.php?logout' class='exit'>Выход</a>";
+                    } else {
+                        echo "<a href='/index.php?module=register'>Войти</a>";
+                    }?>
+            </nav>
         </div>
     </header>
     <main class="page-content container">

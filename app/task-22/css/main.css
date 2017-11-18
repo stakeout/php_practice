@@ -101,11 +101,13 @@ input[type='button']:hover {
     display: none;
 }
 /*19-20 задания*/
-.registration-wrapper{
+.registration-wrapper,
+.goods-form {
     width: 400px;
     margin: 0 auto;
 }
-.authorization {
+.authorization,
+.goods-form {
     padding: 20px;
 }
 .authorization label {
