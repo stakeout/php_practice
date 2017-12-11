@@ -100,6 +100,16 @@ input[type='button']:hover {
 .hidden{
     display: none;
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 /*19-20 задания*/
 .registration-wrapper,
 .goods-form {
@@ -222,4 +232,30 @@ textarea.error{
 .review__text {
     padding: 5px;
     background-color: #fff;
+}
+/* goods form */
+.goods-form h2 {
+    margin-bottom: 25px;
+    text-align: center;
+}
+.goods-form label {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.goods-form input,
+.goods-form select {
+    padding: 7px;
+    border: none;
+    width: 60%;
+}
+label[for=description] textarea {
+    width: 100%;
+    padding: 7px;
 }
