@@ -1,11 +1,10 @@
 <?php
 $msg = $alert = $login = $pass = $mail = $count = '';
 $goods_list = ['Игры','Фильмы','Книги'];
-$pages = array('main','404','logout','gameover');
-$modules = array('reviews','errors','static','register','goods');
+$modules = array('reviews','errors','main','register','catalog');
 if(!isset($_GET['module'])) {
-    $_GET['module'] = 'static';
-} elseif(!in_array($_GET['module'],$modules)) {
+    $_GET['module'] = 'main';
+}elseif(!in_array($_GET['module'],$modules)) {
     header("Location: /index.php?module=errors&page=404");
     exit();
 }
@@ -21,9 +20,10 @@ if(isset($_POST['entrance'],$_POST['login'],$_POST['password'])) {
     if(empty($_POST['password'])) {
         $errors['password'] = 'Заполните пароль';
     }
-    if (!count($errors)) {
+    if(!count($errors)) {
         if($_POST['login'] == 'admin' && $_POST['password'] == 123){
             setcookie('auth','true', time()+3600, '/');
+            $_GET['auth'] = true;
             header('location: /index.php');
             exit;
         }

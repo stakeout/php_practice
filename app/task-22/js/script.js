@@ -3,7 +3,16 @@ var modal_buttons = document.querySelectorAll("[data-modal]");
 var overlay = document.querySelector(".overlay");
 var authBtn = document.querySelector(".authorization-enter");
 var modalAuthForm = document.querySelector(".entrance");
+var modalAddGoods = document.querySelector(".add-goods");
+var addGoodsBtn = document.querySelector(".add-goods-btn");
 
+if(addGoodsBtn) {
+    addGoodsBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        overlay.classList.toggle("hidden");
+        modalAddGoods.classList.toggle("hidden");
+    })
+}
 if(authBtn) {
     authBtn.addEventListener("click", function(e){
         e.preventDefault;
@@ -13,7 +22,12 @@ if(authBtn) {
 }
 if(overlay) {
     overlay.addEventListener("click", function(){
-    modalAuthForm.classList.toggle("hidden");
+    if(modalAuthForm){
+        modalAuthForm.classList.add("hidden");
+    }
+    if(modalAddGoods) {
+        modalAddGoods.classList.add("hidden");
+    }
     this.classList.toggle("hidden");
 })
 }

@@ -16,6 +16,7 @@ gulp.task('watch', function(){
 			'app/**/*.php',
 			'app/**/*.html',
 			'app/**/**/*.css',
+            'app/**/**/*.js',
 			'app/**/**/*.tpl'
 			]).on('change', browserSync.reload);
 });
