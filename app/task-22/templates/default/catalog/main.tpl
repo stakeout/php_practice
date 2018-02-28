@@ -60,7 +60,7 @@
     <a class="sorting-down" href="#"><span class="visually-hidden">По убыванию</span></a>
 </div>
 <ul class="goods-list catalog-list">
-    <?php if(mysqli_num_rows($res)) {
+<!--     <?php if(mysqli_num_rows($res)) {
         while($row = mysqli_fetch_assoc($res)) {?>
             <li class="goods-item catalog-item" data-number="<?php echo htmlspecialchars($row['id']); ?>">
                 <img src="img/<?php echo htmlspecialchars($row['image']); ?> width="<?php echo htmlspecialchars($row['id']); ?>" height="170" alt="BOSCH BFG 3000">
@@ -68,7 +68,7 @@
                 <p class="review__text"><?php echo htmlspecialchars($row['message']); ?></p>
             </li>
         <?php } ?>
-    <?php } ?>
+    <?php } ?> -->
   <li class="goods-item catalog-item">
     <img src="img/goods2.png" width="218" height="170" alt="BOSCH BFG 3000">
     <h3>Перфоратор BOSCH BFG 3000</h3>
@@ -185,3 +185,4 @@
   </p>
 </div>
 </article>
+

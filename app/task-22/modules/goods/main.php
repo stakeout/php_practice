@@ -1,4 +1,5 @@
 <?php
+$manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi'];
 if (isset($_POST['add_goods'],$_POST['price'],$_POST['title'],$_POST['description'],$_POST['cathegory'],$_POST['code'])) {
     $error = [];
     if (empty($_POST['title'])) {

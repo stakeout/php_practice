@@ -6,13 +6,13 @@ var modalAuthForm = document.querySelector(".entrance");
 var modalAddGoods = document.querySelector(".add-goods");
 var addGoodsBtn = document.querySelector(".add-goods-btn");
 
-if(addGoodsBtn) {
-    addGoodsBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        overlay.classList.toggle("hidden");
-        modalAddGoods.classList.toggle("hidden");
-    })
-}
+// if(addGoodsBtn) {
+//     addGoodsBtn.addEventListener("click", function(e){
+//         e.preventDefault();
+//         overlay.classList.toggle("hidden");
+//         modalAddGoods.classList.toggle("hidden");
+//     })
+// }
 if(authBtn) {
     authBtn.addEventListener("click", function(e){
         e.preventDefault;

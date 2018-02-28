@@ -174,7 +174,9 @@ img {
   height: auto;
 }
 .add-goods {
-  min-width: 500px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
 .add-goods input[type=text] {
     display: block;

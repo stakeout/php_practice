@@ -56,7 +56,7 @@
 <div class="user-additional">
     <a class="user-actions-personal" href="#">Мои заказы</a>
     <span>&bull;</span>
-    <a class="user-actions-personal add-goods-btn" href="#">добавить товар</a>
+    <a class="user-actions-personal add-goods-btn" href="/index.php?module=goods&page=add-goods">добавить товар</a>
 </div>
 </div>
 <?php }
@@ -134,39 +134,40 @@ else { ?>
         <p class="login-data">Форма добавления товаров</p>
         <p>
             <span class="error"><?php echo (isset($errors['title']) ? $errors['title'] : null); ?></span>
-            <input type="text" name="title" placeholder="Название товара">
+            <input type="text" name="title" value="<?php echo htmlspecialchars(isset($_POST['title']) ? $_POST['title'] : null);?>" placeholder="Название товара">
         </p>
         <p>
             <span class="error"><?php echo (isset($errors['code']) ? $errors['code'] : null); ?></span>
-            <input type="text" name="code" placeholder="Код товара">
+            <input type="text" name="code" value="<?php echo htmlspecialchars(isset($_POST['code']) ? $_POST['code'] : null);?>" placeholder="Код товара">
         </p>
         <p>
             <span class="error"><?php echo (isset($errors['manufacturer']) ? $errors['manufacturer'] : null); ?></span>
-            <select name="category" id="category"></select>
+            <?php echo select_parse($manufacturer, 'manufacturer', '- Выберите производителя -'); ?>
         </p>
         <p>
             <span class="error"><?php echo (isset($errors['image']) ? $errors['image'] : null); ?></span>
-            <input type="text" name="image" placeholder="Название картинки">
+            <input type="text" name="image"  value="<?php echo htmlspecialchars(isset($_POST['image']) ? $_POST['image'] : null);?>" placeholder="Название картинки">
         </p>
         <p>
             <span class="error"><?php echo (isset($errors['image-width']) ? $errors['image-width'] : null); ?></span>
-            <input type="text" name="image-width" placeholder="Ширина картинки">
+            <input type="text" name="image-width" value="<?php echo htmlspecialchars(isset($_POST['image-width']) ? $_POST['image-width'] : null);?>" placeholder="Ширина картинки">
         </p>
         <p>
             <span class="error"><?php echo (isset($errors['image-height']) ? $errors['image-height'] : null); ?></span>
-            <input type="text" name="image-height" placeholder="Высота картинки">
+            <input type="text" name="image-height" value="<?php echo htmlspecialchars(isset($_POST['image-height']) ? $_POST['image-height'] : null);?>" placeholder="Высота картинки">
         </p>
         <p>
             <span class="error"><?php echo (isset($errors['price']) ? $errors['price'] : null); ?></span>
-            <input type="text" name="price" placeholder="Цена товара">
+            <input type="text" name="price" value="<?php echo htmlspecialchars(isset($_POST['price']) ? $_POST['price'] : null);?>" placeholder="Цена товара">
         </p>
         <p>
-            <span class="error"><?php echo (isset($errors['описание товара']) ? $errors['описание товара'] : null); ?></span>
-            <textarea name="описание товара" placeholder="Описание товара"></textarea>
+            <span class="error"><?php echo (isset($errors['description']) ? $errors['description'] : null); ?></span>
+            <textarea name="description" placeholder="Описание товара"><?php echo htmlspecialchars(isset($_POST['description']) ? $_POST['description'] : null);?></textarea>
         </p>
         <input type="submit" class="btn" name="add-goods" value="Добавить товар">
     </form>
 </div>
+
 <div class="overlay hidden"></div>
 <script src="js/script.js"></script>
 </body>
