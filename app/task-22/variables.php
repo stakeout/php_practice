@@ -1,6 +1,6 @@
 <?php
 $msg = $alert = $login = $pass = $mail = $count = '';
-$modules = array('reviews','errors','main','register','goods');
+$modules = array('reviews','errors','main','register','goods','catalog');
 if(!isset($_GET['module'])) {
     $_GET['module'] = 'main';
 }elseif(!in_array($_GET['module'],$modules)) {

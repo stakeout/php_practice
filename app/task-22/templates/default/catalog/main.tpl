@@ -60,102 +60,19 @@
     <a class="sorting-down" href="#"><span class="visually-hidden">По убыванию</span></a>
 </div>
 <ul class="goods-list catalog-list">
-<!--     <?php if(mysqli_num_rows($res)) {
+    <?php if(mysqli_num_rows($res)) {
         while($row = mysqli_fetch_assoc($res)) {?>
             <li class="goods-item catalog-item" data-number="<?php echo htmlspecialchars($row['id']); ?>">
-                <img src="img/<?php echo htmlspecialchars($row['image']); ?> width="<?php echo htmlspecialchars($row['id']); ?>" height="170" alt="BOSCH BFG 3000">
-                <div class="review__info"><span class="review__author"><?php echo htmlspecialchars($row['name']); ?></span> из города <span class="review__town"><?php echo htmlspecialchars($row['town']); ?></span><span class="review__time"><?php echo htmlspecialchars($row['time_created']); ?></span></div>
-                <p class="review__text"><?php echo htmlspecialchars($row['message']); ?></p>
+                <img src="/img/<?php echo htmlspecialchars($row['image']); ?>" width="<?php echo htmlspecialchars($row['img-width']); ?>" height="<?php echo htmlspecialchars($row['img-height']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
+                <h3><a href="#"><?php echo htmlspecialchars($row['title']); ?></a></h3>
+                <p class="price"><?php echo htmlspecialchars($row['price']); ?> &#8381;</p>
+                <div class="goods-actions">
+                    <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
+                    <a class="bookmark-btn" href="#">В закладки</a>
+                </div>
             </li>
         <?php } ?>
-    <?php } ?> -->
-  <li class="goods-item catalog-item">
-    <img src="img/goods2.png" width="218" height="170" alt="BOSCH BFG 3000">
-    <h3>Перфоратор BOSCH BFG 3000</h3>
-    <s>22500 Р.</s>
-    <p class="price">15500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item catalog-item">
-    <img src="img/goods3.png" width="218" height="170" alt="BOSCH BFG 6000">
-    <h3>Перфоратор BOSCH BFG 6000</h3>
-    <s>30500 Р.</s>
-    <p class="price">25500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item new-item catalog-item">
-    <img src="img/goods4.png" width="218" height="170" alt="BOSCH BFG 2000">
-    <h3 class="without-discount">Перфоратор BOSCH BFG 2000</h3>
-    <p class="price">12500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item catalog-item">
-    <img src="img/goods2.png" width="218" height="170" alt="BOSCH BFG 3000">
-    <h3>Перфоратор BOSCH BFG 3000</h3>
-    <s>22500 Р.</s>
-    <p class="price">15500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item catalog-item">
-    <img src="img/goods3.png" width="218" height="170" alt="BOSCH BFG 6000">
-    <h3>Перфоратор BOSCH BFG 6000</h3>
-    <s>30500 Р.</s>
-    <p class="price">25500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item new-item catalog-item">
-    <img src="img/goods4.png" width="218" height="170" alt="BOSCH BFG 2000">
-    <h3 class="without-discount">Перфоратор BOSCH BFG 2000</h3>
-    <p class="price">12500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item catalog-item">
-    <img src="img/goods2.png" width="218" height="170" alt="BOSCH BFG 3000">
-    <h3>Перфоратор BOSCH BFG 3000</h3>
-    <s>22500 Р.</s>
-    <p class="price">15500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item catalog-item">
-    <img src="img/goods3.png" width="218" height="170" alt="BOSCH BFG 6000">
-    <h3>Перфоратор BOSCH BFG 6000</h3>
-    <s>30500 Р.</s>
-    <p class="price">25500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
-<li class="goods-item new-item catalog-item">
-    <img src="img/goods4.png" width="218" height="170" alt="BOSCH BFG 2000">
-    <h3 class="without-discount">Перфоратор BOSCH BFG 2000</h3>
-    <p class="price">12500 Р.</p>
-    <div class="goods-actions">
-      <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-      <a class="bookmark-btn" href="#">В закладки</a>
-  </div>
-</li>
+    <?php } ?>
 </ul>
 <div class="modal modal-cart">
   <p>Товар добавлен в корзину!</p>

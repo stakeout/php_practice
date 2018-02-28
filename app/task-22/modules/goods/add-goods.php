@@ -1,6 +1,4 @@
 <?php
-$res = mysqli_query($link, "SELECT * from goods ORDER BY `id`") or exit(mysqli_error($link));
-
 $manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi'];
 
 if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
@@ -22,7 +20,7 @@ if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['descriptio
         $errors['code'] = 'Какой код товара?';
     }
     if (empty($_POST['image'])) {
-        $errors['image'] = 'Картинка товара';
+        $errors['image'] = 'Картинка товара&';
     }
     if (empty($_POST['image-width'])) {
         $errors['image-width'] = 'Ширина картинки?';
@@ -43,7 +41,7 @@ if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['descriptio
             `img-width`    = ". (int)$_POST['image-width'] .",
             `img-height`   = ". (int)$_POST['image-height'] ."
             ") or exit(mysqli_error($link));
-        $_SESSION['info'] = 'Запись была добавлена';
+        $_SESSION['info'] = $_POST['title'];
         header('location: /index.php?module=goods&page=add-goods');
         exit;
     }

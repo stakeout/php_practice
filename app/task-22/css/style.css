@@ -195,6 +195,10 @@ input[name=add-goods] {
   padding: 5px 15px;
   resize: vertical;
 }
+.add-goods h2 {
+    color: #000;
+    text-align: center;
+}
 .main-page .page-header {
   background-color: #f3f7f9;
 }
@@ -1400,7 +1404,12 @@ input[name=add-goods] {
 
 .goods-list .goods-item {
   position: relative;
-
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
   width: 220px;
   min-height: 318px;
   padding-bottom: 20px;
@@ -1411,8 +1420,11 @@ input[name=add-goods] {
   font-weight: bold;
   font-size: 17px;
   text-align: center;
-
+  color: #000;
   border: 1px solid #eaeaea;
+}
+.goods-item h3 a {
+    color: inherit;
 }
 
 .catalog-item {
@@ -1442,6 +1454,7 @@ input[name=add-goods] {
 }
 
 .goods-item .price {
+    margin-top: auto;
   background-color: #ee3643;
 
   color: white;

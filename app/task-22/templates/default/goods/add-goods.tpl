@@ -1,5 +1,8 @@
 <form class="add-goods" action="#" method="post">
-    <h2><?php (isset($_SESSION['info']) ? $_SESSION['info'] : null); ?></h2>
+    <?php
+    if(isset($_SESSION['info'])) { ?>
+        <h2>запись <?php echo $_SESSION['info'] ?> была добавлена</h2>
+    <?php unset($_SESSION['info']); } ?>
     <p class="login-data">Форма добавления товаров</p>
     <p>
         <span class="error"><?php echo (isset($errors['title']) ? $errors['title'] : null); ?></span>
