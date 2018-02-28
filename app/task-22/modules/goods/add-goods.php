@@ -5,32 +5,32 @@ $manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi'];
 
 if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
     $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'])) {
-    $error = [];
+    $errors = [];
     if (empty($_POST['title'])) {
-        $error['title'] = true;
+        $errors['title'] = 'Внесите название товара';
     }
     if (empty($_POST['price'])) {
-        $error['price'] = true;
+        $errors['price'] = 'Добавьте цену';
     }
     if (empty($_POST['description'])) {
-        $error['description'] = true;
+        $errors['description'] = 'Добавьте описание товара';
     }
     if (empty($_POST['manufacturer'])) {
-        $error['manufacturer'] = true;
+        $errors['manufacturer'] = 'Кто произвел товар?';
     }
     if (empty($_POST['code'])) {
-        $error['code'] = true;
+        $errors['code'] = 'Какой код товара?';
     }
     if (empty($_POST['image'])) {
-        $error['image'] = true;
+        $errors['image'] = 'Картинка товара';
     }
     if (empty($_POST['image-width'])) {
-        $error['image-width'] = true;
+        $errors['image-width'] = 'Ширина картинки?';
     }
     if (empty($_POST['image-height'])) {
-        $error['image-height'] = true;
+        $errors['image-height'] = 'Высота картинки?';
     }
-    if (!count($error)) {
+    if (!count($errors)) {
         mysqli_query($link,
             "
             INSERT INTO goods SET
