@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>HTML Academy: Техномарт</title>
+  <title>Магазин Техномарт</title>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -56,7 +56,7 @@
 <div class="user-additional">
     <a class="user-actions-personal" href="#">Мои заказы</a>
     <span>&bull;</span>
-    <a class="user-actions-personal add-goods-btn" href="/index.php?module=goods&page=add-goods">добавить товар</a>
+    <a class="user-actions-personal add-goods-btn" href="/index.php?module=goods">добавить товар</a>
 </div>
 </div>
 <?php }

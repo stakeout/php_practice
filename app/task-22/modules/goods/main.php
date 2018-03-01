@@ -1,49 +1,80 @@
 <?php
+$res = mysqli_query($link, "SELECT * from goods ORDER BY `id`") or exit(mysqli_error($link));
+
 $manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi'];
-if (isset($_POST['add_goods'],$_POST['price'],$_POST['title'],$_POST['description'],$_POST['cathegory'],$_POST['code'])) {
-    $error = [];
+
+if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
+    $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'])) {
+    $errors = [];
     if (empty($_POST['title'])) {
-        $error['title'] = true;
+        $errors['title'] = 'Внесите название товара';
     }
     if (empty($_POST['price'])) {
-        $error['price'] = true;
+        $errors['price'] = 'Добавьте цену';
     }
     if (empty($_POST['description'])) {
-        $error['description'] = true;
+        $errors['description'] = 'Добавьте описание товара';
     }
-    if (empty($_POST['cathegory'])) {
-        $error['cathegory'] = true;
+    if (empty($_POST['manufacturer'])) {
+        $errors['manufacturer'] = 'Кто произвел товар?';
     }
     if (empty($_POST['code'])) {
-        $error['code'] = true;
+        $errors['code'] = 'Какой код товара?';
     }
-    if (!count($error)) {
+    if (empty($_POST['image'])) {
+        $errors['image'] = 'Картинка товара&';
+    }
+    if (empty($_POST['image-width'])) {
+        $errors['image-width'] = 'Ширина картинки?';
+    }
+    if (empty($_POST['image-height'])) {
+        $errors['image-height'] = 'Высота картинки?';
+    }
+    if (!count($errors)) {
         mysqli_query($link,
             "
             INSERT INTO goods SET
-            `title`       = '" . mysqli_real_escape_string($link, $_POST['title']) . "',
-            `price`       = ". (int)$_POST['price'] .",
-            `description` = '" . nl2br(mysqli_real_escape_string($link, $_POST['description'])) ."',
-            `cathegory`   = ". (int)$_POST['cathegory'] .",
-            `code`        = ". (int)$_POST['code'] ."
+            `title`          = '" . mysqli_real_escape_string($link, trim($_POST['title'])) . "',
+            `price`          = ". (int)$_POST['price'] .",
+            `description`    = '" . nl2br(mysqli_real_escape_string($link, trim($_POST['description']))) ."',
+            `manufacturer`   = '". mysqli_real_escape_string($link, trim($_POST['manufacturer'])) ."',
+            `code`           = ". (int)$_POST['code'] .",
+            `image`          = '". mysqli_real_escape_string($link, trim($_POST['image'])) ."',
+            `img-width`    = ". (int)$_POST['image-width'] .",
+            `img-height`   = ". (int)$_POST['image-height'] ."
             ") or exit(mysqli_error($link));
-        $_SESSION['info'] = 'Запись была добавлена';
+        $_SESSION['info'] = $_POST['title'];
         header('location: /index.php?module=goods');
         exit;
     }
 }
+// delete one row
 if(isset($_GET['action']) && $_GET['action'] == 'delete') {
     mysqli_query($link,
     "
-        DELETE FROM goods
-        WHERE `id` = ".$_GET['id']."
-    ");
+    DELETE FROM goods
+    WHERE `id` = ".(int)$_GET['id']."
+    ") or exit(mysqli_error($link));
     $_SESSION['info'] = 'Запись была удалена';
     header('location: /index.php?module=goods');
     exit;
 }
-if(isset($_SESSION['info'])) {
-    $info = $_SESSION['info'];
-    unset($_SESSION['info']);
+// mass delete
+if(isset($_POST['mass-delete'])) {
+    foreach($_POST['ids'] as $key => $value) {
+        $key = (int)$value;
+    }
+    $ids = implode(',',$_POST['ids']);
+    mysqli_query($link,
+    "
+    DELETE FROM goods
+    WHERE `id` IN (".$ids.")
+    ") or exit(mysqli_error($link));
+    $_SESSION['info'] = 'Записи были удалены';
+    header('location: /index.php?module=goods');
+    exit;
 }
-$res = mysqli_query($link, "SELECT * from goods ORDER BY `id`") or exit(mysqli_error($link));
+// if(isset($_SESSION['info'])) {
+//     $info = $_SESSION['info'];
+//     unset($_SESSION['info']);
+// }

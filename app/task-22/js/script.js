@@ -5,7 +5,25 @@ var authBtn = document.querySelector(".authorization-enter");
 var modalAuthForm = document.querySelector(".entrance");
 var modalAddGoods = document.querySelector(".add-goods");
 var addGoodsBtn = document.querySelector(".add-goods-btn");
+var checked = document.querySelectorAll('.goods input[type="checkbox"]');
+var massDeleteBtn = document.querySelector('input[name=mass-delete');
 
+if(massDeleteBtn) {
+    for(var i =0, count =0; i < checked.length; i++) {
+        checked[i].addEventListener('click', function(){
+            if(this.checked) {
+                count++;
+            }else {
+                count--;
+            }
+            if(count >= 1) {
+                massDeleteBtn.style.visibility = 'visible';
+            }else {
+                massDeleteBtn.style.visibility = 'hidden';
+            }
+        })
+    }
+}
 // if(addGoodsBtn) {
 //     addGoodsBtn.addEventListener("click", function(e){
 //         e.preventDefault();
