@@ -33,7 +33,9 @@
     </p>
     <p>
         <span class="error"><?php echo (isset($errors['manufacturer']) ? $errors['manufacturer'] : null); ?></span>
-        <?php echo select_parse($manufacturer, 'manufacturer', 'Выберите производителя', (isset($_POST['manufacturer']) || isset($_GET['action']) ? true : null)); ?>
+        <!-- переменная $selected_value приходяит из goods.php-->
+        <?php echo select_parse($manufacturer, 'manufacturer', 'Выберите производителя',
+        $selected_value); ?>
     </p>
     <p>
         <span class="error"><?php echo (isset($errors['image']) ? $errors['image'] : null); ?></span>

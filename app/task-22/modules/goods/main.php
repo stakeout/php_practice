@@ -80,11 +80,19 @@ if(isset($_GET['action']) && $_GET['action'] == 'edit') {
     "
     SELECT * FROM goods
     WHERE `id` = ".(int)$_GET['id']."
+    LIMIT 1
     ") or exit(mysqli_error($link));
     $_SESSION['info'] = 'Редактируем запись';
     $edit_row = mysqli_fetch_assoc($edit);
     // header('location: /index.php?module=goods&action=edit&id=$_GET['id']);
     // exit;
+}
+if(isset($_POST['manufacturer'])) {
+    $selected_value = $_POST['manufacturer'];
+}elseif(isset($_GET['action']) && $_GET['action'] == 'edit') {
+    $selected_value = $edit_row['manufacturer'];
+}else {
+    $selected_value = '';
 }
 // if(isset($_SESSION['info'])) {
 //     $info = $_SESSION['info'];
