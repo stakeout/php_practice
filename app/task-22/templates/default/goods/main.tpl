@@ -1,18 +1,18 @@
-<section class="goods">
+<section class="goods-catalog">
     <div class="container">
         <?php if(isset($_SESSION['info'])) { ?>
             <h2><?php echo $_SESSION['info'] ?></h2>
         <?php unset($_SESSION['info']); } ?>
         <p>всего в базе <span class=""><?php echo mysqli_num_rows($res);?></span> товаров</p>
         <form action="" method="POST">
-            <ul class="goods__list">
+            <ul class="goods-catalog__list">
                 <?php if(mysqli_num_rows($res))
                     while($row = mysqli_fetch_assoc($res)) {?>
-                    <li class="goods__item">
+                    <li class="goods-catalog__item">
                         <input type="checkbox" name="ids[]" value="<?php echo $row['id'];?>">
-                        <a href="/index.php?module=goods&action=edit&id=<?php echo $row['id']; ?>">edit</a>
-                        <a class="goods__delete" href="/index.php?module=goods&action=delete&id=<?php echo $row['id']; ?>"><span class="visually-hidden">удалить</span></a>
-                        <p class="goods__title"><?php echo $row['title'];?></p>
+                        <a class="goods-catalog__edit" href="/index.php?module=goods&action=edit&id=<?php echo $row['id']; ?>"><span class="visually-hidden">редактировать</span></a>
+                        <a class="goods-catalog__delete" href="/index.php?module=goods&action=delete&id=<?php echo $row['id']; ?>"><span class="visually-hidden">удалить</span></a>
+                        <p class="goods-catalog__title"><?php echo $row['title'];?></p>
                     </li>
                 <?php } ?>
             </ul>
@@ -24,7 +24,6 @@
     <p class="login-data">Форма добавления товаров</p>
     <p>
         <span class="error"><?php echo (isset($errors['title']) ? $errors['title'] : null); ?></span>
-        <!-- <input type="text" name="title" value="<?php echo htmlspecialchars(isset($_POST['title']) ? $_POST['title'] : null);?>" placeholder="Название товара"> -->
         <input type="text" name="title" value="<?php echo htmlspecialchars(isset($_GET['action']) && $_GET['action'] == 'edit' ? $edit_row['title'] : (isset($_POST['title']) ? $_POST['title'] : null));?>" placeholder="Название товара">
     </p>
     <p>
@@ -35,7 +34,7 @@
         <span class="error"><?php echo (isset($errors['manufacturer']) ? $errors['manufacturer'] : null); ?></span>
         <!-- переменная $selected_value приходяит из goods.php-->
         <?php echo select_parse($manufacturer, 'manufacturer', 'Выберите производителя',
-        $selected_value); ?>
+        htmlspecialchars($selected_value)); ?>
     </p>
     <p>
         <span class="error"><?php echo (isset($errors['image']) ? $errors['image'] : null); ?></span>
@@ -57,5 +56,5 @@
         <span class="error"><?php echo (isset($errors['description']) ? $errors['description'] : null); ?></span>
         <textarea name="description" placeholder="Описание товара"><?php echo htmlspecialchars(isset($_GET['action']) && $_GET['action'] == 'edit' ? $edit_row['description'] : (isset($_POST['description']) ? $_POST['description'] : null));?></textarea>
     </p>
-    <input type="submit" class="btn" name="add-goods" value="Добавить товар">
+    <input type="submit" class="btn" name="<?php echo (isset($_GET['action']) && $_GET['action'] == 'edit' ? 'edit-goods' : 'add-goods'); ?>" value="<?php echo (isset($_GET['action']) && $_GET['action'] == 'edit' ? 'Сохранить' : 'Добавить товар'); ?>">
 </form>

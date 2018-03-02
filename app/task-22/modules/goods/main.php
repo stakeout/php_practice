@@ -83,10 +83,31 @@ if(isset($_GET['action']) && $_GET['action'] == 'edit') {
     LIMIT 1
     ") or exit(mysqli_error($link));
     $_SESSION['info'] = 'Редактируем запись';
-    $edit_row = mysqli_fetch_assoc($edit);
-    // header('location: /index.php?module=goods&action=edit&id=$_GET['id']);
-    // exit;
+    $edit_row = mysqli_fetch_assoc($edit);    //беру из базы облако данных для редактирования
 }
+//updating data
+if (isset($_POST['edit-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
+    $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'])) {
+    mysqli_query($link,
+        "
+        UPDATE goods SET
+        `title`          = '" . mysqli_real_escape_string($link, trim($_POST['title'])) . "',
+        `price`          = ". (int)$_POST['price'] .",
+        `description`    = '" . nl2br(mysqli_real_escape_string($link, trim($_POST['description']))) ."',
+        `manufacturer`   = '". mysqli_real_escape_string($link, trim($_POST['manufacturer'])) ."',
+        `code`           = ". (int)$_POST['code'] .",
+        `image`          = '". mysqli_real_escape_string($link, trim($_POST['image'])) ."',
+        `img-width`    = ". (int)$_POST['image-width'] .",
+        `img-height`   = ". (int)$_POST['image-height'] ."
+        WHERE `id` = ".(int)$_GET['id']."
+        ") or exit(mysqli_error($link));
+    $_SESSION['info'] = 'Запись была отредактирована';
+    header('location: /index.php?module=goods');
+    exit;
+}
+///////////////////////
+// при редактировании строка WHERE `id` = ".(int)$_GET['id']." обязательна!!!
+//////////////////////
 if(isset($_POST['manufacturer'])) {
     $selected_value = $_POST['manufacturer'];
 }elseif(isset($_GET['action']) && $_GET['action'] == 'edit') {

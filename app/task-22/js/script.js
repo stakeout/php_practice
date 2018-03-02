@@ -5,7 +5,7 @@ var authBtn = document.querySelector(".authorization-enter");
 var modalAuthForm = document.querySelector(".entrance");
 var modalAddGoods = document.querySelector(".add-goods");
 var addGoodsBtn = document.querySelector(".add-goods-btn");
-var checked = document.querySelectorAll('.goods input[type="checkbox"]');
+var checked = document.querySelectorAll('.goods-catalog input[type="checkbox"]');
 var massDeleteBtn = document.querySelector('input[name=mass-delete');
 
 if(massDeleteBtn) {

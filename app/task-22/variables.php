@@ -1,5 +1,5 @@
 <?php
-$msg = $alert = $login = $pass = $mail = $count = '';
+$msg = $alert = $login = $pass = $mail = '';
 $modules = array('reviews','errors','main','register','goods','catalog');
 if(!isset($_GET['module'])) {
     $_GET['module'] = 'main';
