@@ -43,7 +43,7 @@ if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['descriptio
             `img-width`    = ". (int)$_POST['image-width'] .",
             `img-height`   = ". (int)$_POST['image-height'] ."
             ") or exit(mysqli_error($link));
-        $_SESSION['info'] = $_POST['title'];
+        $_SESSION['info'] = 'Новая записб добавлена';
         header('location: /index.php?module=goods');
         exit;
     }
@@ -73,6 +73,18 @@ if(isset($_POST['mass-delete'])) {
     $_SESSION['info'] = 'Записи были удалены';
     header('location: /index.php?module=goods');
     exit;
+}
+//editing
+if(isset($_GET['action']) && $_GET['action'] == 'edit') {
+    $edit = mysqli_query($link,
+    "
+    SELECT * FROM goods
+    WHERE `id` = ".(int)$_GET['id']."
+    ") or exit(mysqli_error($link));
+    $_SESSION['info'] = 'Редактируем запись';
+    $edit_row = mysqli_fetch_assoc($edit);
+    // header('location: /index.php?module=goods&action=edit&id=$_GET['id']);
+    // exit;
 }
 // if(isset($_SESSION['info'])) {
 //     $info = $_SESSION['info'];
