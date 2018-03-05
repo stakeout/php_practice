@@ -1,6 +1,6 @@
 <?php
 $msg = $alert = $login = $pass = $mail = '';
-$modules = array('reviews','errors','main','register','goods','catalog');
+$modules = array('errors','main','goods','catalog','authorization');
 if(!isset($_GET['module'])) {
     $_GET['module'] = 'main';
 }elseif(!in_array($_GET['module'],$modules)) {
@@ -10,24 +10,8 @@ if(!isset($_GET['module'])) {
 if(!isset($_GET['page'])){
     $_GET['page'] = 'main';
 }
+// так как авторизация пока не в отдельном модуле, вынес ее сюда, как и logout
 
-if(isset($_POST['entrance'],$_POST['login'],$_POST['password'])) {
-    $errors = [];
-    if(empty($_POST['login'])) {
-        $errors['login'] = 'Заполните имя';
-    }
-    if(empty($_POST['password'])) {
-        $errors['password'] = 'Заполните пароль';
-    }
-    if(!count($errors)) {
-        if($_POST['login'] == 'admin' && $_POST['password'] == 123){
-            setcookie('auth','true', time()+3600, '/');
-            $_GET['auth'] = true;
-            header('location: /index.php');
-            exit;
-        }
-    }
-}
 
 if(isset($_GET['logout'])) {
     setcookie('auth','true',time()-100,'/');

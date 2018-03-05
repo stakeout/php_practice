@@ -12,7 +12,7 @@
                         <input type="checkbox" name="ids[]" value="<?php echo $row['id'];?>">
                         <a class="goods-catalog__edit" href="/index.php?module=goods&action=edit&id=<?php echo $row['id']; ?>"><span class="visually-hidden">редактировать</span></a>
                         <a class="goods-catalog__delete" href="/index.php?module=goods&action=delete&id=<?php echo $row['id']; ?>"><span class="visually-hidden">удалить</span></a>
-                        <p class="goods-catalog__title"><?php echo $row['title'];?></p>
+                        <p class="goods-catalog__title"><?php echo htmlspecialchars($row['title']);?></p>
                     </li>
                 <?php } ?>
             </ul>
@@ -32,7 +32,7 @@
     </p>
     <p>
         <span class="error"><?php echo (isset($errors['manufacturer']) ? $errors['manufacturer'] : null); ?></span>
-        <!-- переменная $selected_value приходяит из goods.php-->
+        <!-- переменная $selected_value приходит из goods.php-->
         <?php echo select_parse($manufacturer, 'manufacturer', 'Выберите производителя',
         htmlspecialchars($selected_value)); ?>
     </p>

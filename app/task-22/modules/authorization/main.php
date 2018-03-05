@@ -7,10 +7,16 @@ if(isset($_POST['entrance'],$_POST['login'],$_POST['password'])) {
     if(empty($_POST['password'])) {
         $errors['password'] = 'Заполните пароль';
     }
-    if (!count($errors)) {
+    if(!count($errors)) {
         if($_POST['login'] == 'admin' && $_POST['password'] == 123){
             setcookie('auth','true', time()+3600, '/');
-            header('location: /index.php');
+            $_GET['auth'] = true;
+            // if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ""){
+            //     $url = $_SERVER['HTTP_REFERER'];
+            // }else{
+            //     $url = "YOUR INDEX PAGE OR SOMETHING";
+            // }
+            header("Location: /index.php");
             exit;
         }
     }

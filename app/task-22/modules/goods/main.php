@@ -15,14 +15,14 @@ if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['descriptio
     if (empty($_POST['description'])) {
         $errors['description'] = 'Добавьте описание товара';
     }
-    if (empty($_POST['manufacturer'])) {
+    if ($_POST['manufacturer'] == 'Выберите производителя') {
         $errors['manufacturer'] = 'Кто произвел товар?';
     }
     if (empty($_POST['code'])) {
         $errors['code'] = 'Какой код товара?';
     }
     if (empty($_POST['image'])) {
-        $errors['image'] = 'Картинка товара&';
+        $errors['image'] = 'Картинка товара?';
     }
     if (empty($_POST['image-width'])) {
         $errors['image-width'] = 'Ширина картинки?';
@@ -108,12 +108,13 @@ if (isset($_POST['edit-goods'],$_POST['price'],$_POST['title'],$_POST['descripti
 ///////////////////////
 // при редактировании строка WHERE `id` = ".(int)$_GET['id']." обязательна!!!
 //////////////////////
+// передаю значение для value внутрь функции вывода select
 if(isset($_POST['manufacturer'])) {
     $selected_value = $_POST['manufacturer'];
 }elseif(isset($_GET['action']) && $_GET['action'] == 'edit') {
     $selected_value = $edit_row['manufacturer'];
 }else {
-    $selected_value = '';
+    $selected_value = null;
 }
 // if(isset($_SESSION['info'])) {
 //     $info = $_SESSION['info'];

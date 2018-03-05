@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="page">
-
+  <?php
+  if(!isset($_GET['auth'])) { ?>
   <header class="page-header">
     <a class="visually-hidden" href="#main-content">Перейти к содержанию</a>
     <div class="inner-wrapper">
@@ -62,7 +63,7 @@
 <?php }
 else { ?>
 <div class="authorization">
-  <a class="authorization-enter" href="#">Войти
+  <a class="authorization-enter" href="/index.php?module=authorization&auth">Войти
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
       <path fill="#c5c5c5" d="M14.875 8.5L6 0v6H0v5h6v6z"></path><path fill="#c5c5c5" d="M16.986 15.01h-5.027V17h5.027c2.178 0 3.004-1.81 3.029-3.026V3.028C19.99 1.811 19.164 0 16.986 0h-5.027v1.99h5.027c.839 0 .992.681 1.01 1.057v10.904c-.017.376-.171 1.059-1.01 1.059z"></path>
   </svg>
@@ -85,10 +86,12 @@ else { ?>
 </nav>
 </div>
 </header>
+<?php } ?>
 <main class="page-content">
     <?php include $_GET['module'].'/'.$_GET['page'].'.tpl'; ?>
 </main>
-
+  <?php
+  if(!isset($_GET['auth'])) { ?>
 <footer class="page-footer">
     <div class="footer-main">
       <div class="container">
@@ -115,21 +118,8 @@ else { ?>
 </div>
 </footer>
 
-<div class="popup entrance hidden">
-    <form action="#" method="post">
-        <p class="login-data">Логин: admin, pass: 123</p>
-        <p>
-            <span class="error"><?php echo (isset($errors['login']) ? $errors['login'] : null); ?></span>
-            <input type="text" name="login" value="admin" placeholder="Введите логин">
-        </p>
-        <p>
-            <span class="error"><?php echo (isset($errors['password']) ? $errors['password'] : null); ?></span>
-            <input type="password" name="password" value="123" placeholder="Введите пароль">
-        </p>
-        <input type="submit" class="btn" name="entrance" value="Войти">
-    </form>
-</div>
 <div class="overlay hidden"></div>
+<?php } ?>
 <script src="js/script.js"></script>
 </body>
 </html>

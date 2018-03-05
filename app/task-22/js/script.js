@@ -31,24 +31,24 @@ if(massDeleteBtn) {
 //         modalAddGoods.classList.toggle("hidden");
 //     })
 // }
-if(authBtn) {
-    authBtn.addEventListener("click", function(e){
-        e.preventDefault;
-        overlay.classList.toggle("hidden");
-        modalAuthForm.classList.toggle("hidden");
-    })
-}
-if(overlay) {
-    overlay.addEventListener("click", function(){
-    if(modalAuthForm){
-        modalAuthForm.classList.add("hidden");
-    }
-    if(modalAddGoods) {
-        modalAddGoods.classList.add("hidden");
-    }
-    this.classList.toggle("hidden");
-})
-}
+// if(authBtn) {
+//     authBtn.addEventListener("click", function(e){
+//         e.preventDefault;
+//         overlay.classList.toggle("hidden");
+//         modalAuthForm.classList.toggle("hidden");
+//     })
+// }
+// if(overlay) {
+//     overlay.addEventListener("click", function(){
+//         if(modalAuthForm){
+//             modalAuthForm.classList.add("hidden");
+//         }
+//         if(modalAddGoods) {
+//             modalAddGoods.classList.add("hidden");
+//         }
+//         this.classList.toggle("hidden");
+//     })
+// }
 for (var k=0; k < modal_buttons.length; k++)
   modal_buttons[k].addEventListener("click", function(evt) {
     evt.preventDefault();
