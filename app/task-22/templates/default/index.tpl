@@ -55,9 +55,9 @@
 </a>
 </div>
 <div class="user-additional">
-    <a class="user-actions-personal" href="#">Мои заказы</a>
+    <a class="user-actions-personal" href="/index.php?module=goods">Редактирование</a>
     <span>&bull;</span>
-    <a class="user-actions-personal add-goods-btn" href="/index.php?module=goods">добавить товар</a>
+    <a class="user-actions-personal add-goods-btn" href="/index.php?module=goods&page=add_goods_to_db">добавить товар</a>
 </div>
 </div>
 <?php }
