@@ -1,5 +1,5 @@
 <?php
-$manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi'];
+$manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi','Logitech'];
 
 if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
     $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'])) {

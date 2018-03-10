@@ -56,22 +56,22 @@
         <li><a class="" href="#">По типу</a></li>
         <li><a class="" href="#">По функционалу</a></li>
     </ul>
-    <a class="sorting-up active-link" href="#"><span class="visually-hidden">По возрастанию</span></a>
-    <a class="sorting-down" href="#"><span class="visually-hidden">По убыванию</span></a>
+    <a class="sorting-up active-link" href="/index.php?module=catalog&asc"><span class="visually-hidden">По возрастанию</span></a>
+    <a class="sorting-down" href="/index.php?module=catalog&desc"><span class="visually-hidden">По убыванию</span></a>
 </div>
 <ul class="goods-list catalog-list">
-    <?php if(mysqli_num_rows($res)) {
-        while($row = mysqli_fetch_assoc($res)) {?>
-            <li class="goods-item catalog-item" data-number="<?php echo htmlspecialchars($row['id']); ?>">
-                <img src="/img/<?php echo htmlspecialchars($row['image']); ?>" width="<?php echo htmlspecialchars($row['img-width']); ?>" height="<?php echo htmlspecialchars($row['img-height']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
-                <h3><a href="#"><?php echo htmlspecialchars($row['title']); ?></a></h3>
-                <p class="price"><?php echo htmlspecialchars($row['price']); ?> &#8381;</p>
-                <div class="goods-actions">
-                    <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
-                    <a class="bookmark-btn" href="#">В закладки</a>
-                </div>
-            </li>
-        <?php } ?>
+    <?php echo $row; ?>
+    <?php while($row = mysqli_fetch_assoc($res)) {?>
+        <li class="goods-item catalog-item" data-number="<?php echo htmlspecialchars($row['id']); ?>">
+            <img src="/img/<?php echo htmlspecialchars($row['image']); ?>" width="<?php echo htmlspecialchars($row['img-width']); ?>" height="<?php echo htmlspecialchars($row['img-height']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
+            <h3><a href="#"><?php echo htmlspecialchars($row['title']); ?></a></h3>
+            <?php echo ($row['available'] ? '<span class="no-available">нет в наличии</span>' : null); {}?>
+            <p class="price"><?php echo htmlspecialchars($row['price']); ?> &#8381;</p>
+            <div class="goods-actions">
+                <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>
+                <a class="bookmark-btn" href="#">В закладки</a>
+            </div>
+        </li>
     <?php } ?>
 </ul>
 <div class="modal modal-cart">

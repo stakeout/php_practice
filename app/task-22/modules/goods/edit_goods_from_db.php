@@ -13,7 +13,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'edit') {
 }
 //updating data
 if (isset($_POST['edit-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
-    $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'])) {
+    $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'],$_POST['available'])) {
         $errors = [];
     if (empty($_POST['title'])) {
         $errors['title'] = 'Внесите название товара';
@@ -49,8 +49,9 @@ if (isset($_POST['edit-goods'],$_POST['price'],$_POST['title'],$_POST['descripti
             `manufacturer`   = '". mysqli_real_escape_string($link, trim($_POST['manufacturer'])) ."',
             `code`           = ". (int)$_POST['code'] .",
             `image`          = '". mysqli_real_escape_string($link, trim($_POST['image'])) ."',
-            `img-width`    = ". (int)$_POST['image-width'] .",
-            `img-height`   = ". (int)$_POST['image-height'] ."
+            `img-width`      = ". (int)$_POST['image-width'] .",
+            `img-height`     = ". (int)$_POST['image-height'] .",
+            `available`      = ". (int)$_POST['available'] ."
             WHERE `id` = ".(int)$_GET['id']."
             ") or exit(mysqli_error($link));
         $_SESSION['info'] = 'Запись была отредактирована';

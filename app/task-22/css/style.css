@@ -246,6 +246,9 @@ img {
     background-repeat: no-repeat;
     background-size: 20px 20px;
 }
+.goods-catalog label {
+    margin-left: auto;
+}
 .goods-catalog input[type=submit] {
     color: #fff;
     padding: 0 15px;
@@ -282,6 +285,9 @@ input[name=edit-goods] {
   padding: 5px 15px;
   resize: vertical;
 }
+.add-goods label {
+    color: #000;
+}
 .add-goods h2 {
     color: #000;
     text-align: center;
@@ -295,7 +301,10 @@ input[name=edit-goods] {
 .catalog-additional-info {
   background-color: #f2f6f8;
 }
-
+.goods-item .no-available {
+    color: #c3c3c3;
+    font-weight: 400;
+}
 .logo {
   width: 220px;
 

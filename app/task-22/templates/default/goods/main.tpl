@@ -8,8 +8,9 @@
                         <li class="goods-catalog__item">
                             <input type="checkbox" name="ids[]" value="<?php echo $row['id'];?>">
                             <a class="goods-catalog__edit" href="/index.php?module=goods&page=edit_goods_from_db&action=edit&id=<?php echo $row['id']; ?>"><span class="visually-hidden">редактировать</span></a>
-                            <a class="goods-catalog__delete" href="/index.php?module=goods&action=delete&id=<?php echo $row['id']; ?>"><span class="visually-hidden">удалить</span></a>
+                            <a class="goods-catalog__delete" href="/index.php?module=goods&page=delete_goods_from_db&action=delete&id=<?php echo $row['id']; ?>"><span class="visually-hidden">удалить</span></a>
                             <p class="goods-catalog__title"><?php echo htmlspecialchars($row['title']);?></p>
+                            <label for="available"><input type="checkbox" id="available" name="available" <?php echo ($row['available'] == true ? 'checked' : null);?>></label>
                         </li>
                     <?php } ?>
                 </ul>

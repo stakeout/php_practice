@@ -34,5 +34,14 @@
         <span class="error"><?php echo (isset($errors['description']) ? $errors['description'] : null); ?></span>
         <textarea name="description" placeholder="Описание товара"><?php echo htmlspecialchars(isset($_GET['action']) && $_GET['action'] == 'edit' ? $edit_row['description'] : (isset($_POST['description']) ? $_POST['description'] : null));?></textarea>
     </p>
+    <p>
+        <input type="checkbox" id="available" name="available" <?php
+        if(isset($_GET['action']) && $_GET['action'] == 'edit') {
+            echo htmlspecialchars($edit_row['available'] ? 'checked' : null);
+        }else {
+            echo htmlspecialchars(isset($_POST['available'])  ? $_POST['available'] : null);
+        }?>>
+        <label for="available">Наличие на складе</label>
+    </p>
     <input type="submit" class="btn" name="<?php echo (isset($_GET['action']) && $_GET['action'] == 'edit' ? 'edit-goods' : 'add-goods'); ?>" value="<?php echo (isset($_GET['action']) && $_GET['action'] == 'edit' ? 'Сохранить' : 'Добавить товар'); ?>">
 </form>
