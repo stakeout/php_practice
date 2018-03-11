@@ -35,6 +35,9 @@
         <span class="error"><?php echo (isset($errors['description']) ? $errors['description'] : null); ?></span>
         <textarea name="description" placeholder="Описание товара"><?php echo htmlspecialchars(isset($_POST['description']) ? $_POST['description'] : null);?></textarea>
     </p>
+    <p>
+        <input type="checkbox" name="available" id="available"><label for="available">наличие на складе</label>
+    </p>
     <input type="submit" class="btn" name="add-goods" value="Добавить товар">
 </form>
 <?php } else { ?>
@@ -43,3 +46,4 @@
         <a class="btn" href="/index.php?module=goods&page=add_goods_to_db">Добавить еще одну запись</a>
     </div>
 <?php  } ?>
+<?php echo print_r2($_POST); ?>

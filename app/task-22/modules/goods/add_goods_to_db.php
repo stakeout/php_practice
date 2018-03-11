@@ -4,6 +4,7 @@ $manufacturer = ['Bosch','Интерскол','Makita','Dewalt','Hitachi','Logit
 if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['description'],
     $_POST['manufacturer'],$_POST['code'],$_POST['image'],$_POST['image-width'],$_POST['image-height'])) {
     $errors = [];
+    $available = (isset($_POST['available']) ? 1 : 0);
     if (empty($_POST['title'])) {
         $errors['title'] = 'Внесите название товара';
     }
@@ -39,7 +40,8 @@ if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['descriptio
             `code`           = ". (int)$_POST['code'] .",
             `image`          = '". mysqli_real_escape_string($link, trim($_POST['image'])) ."',
             `img-width`    = ". (int)$_POST['image-width'] .",
-            `img-height`   = ". (int)$_POST['image-height'] ."
+            `img-height`   = ". (int)$_POST['image-height'] .",
+            `available`   = ". (int)$available ."
             ") or exit(mysqli_error($link));
         $_SESSION['info'] = 'Новая запись добавлена';
         header('location: /index.php?module=goods&page=add_goods_to_db');

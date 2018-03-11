@@ -19,3 +19,8 @@ function select_parse($arr, $name, $default_value='', $selected_value) {
 
     return $html;
 }
+function print_r2($val){
+    echo '<pre>';
+    print_r($val);
+    echo  '</pre>';
+}

@@ -65,7 +65,7 @@
         <li class="goods-item catalog-item" data-number="<?php echo htmlspecialchars($row['id']); ?>">
             <img src="/img/<?php echo htmlspecialchars($row['image']); ?>" width="<?php echo htmlspecialchars($row['img-width']); ?>" height="<?php echo htmlspecialchars($row['img-height']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
             <h3><a href="#"><?php echo htmlspecialchars($row['title']); ?></a></h3>
-            <?php echo ($row['available'] ? '<span class="no-available">нет в наличии</span>' : null); {}?>
+            <?php echo (!$row['available'] ? '<span class="no-available">нет в наличии</span>' : null); {}?>
             <p class="price"><?php echo htmlspecialchars($row['price']); ?> &#8381;</p>
             <div class="goods-actions">
                 <a class="buy-btn" href="#" data-modal="modal-cart">Купить</a>

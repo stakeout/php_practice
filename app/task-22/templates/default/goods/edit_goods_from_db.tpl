@@ -37,11 +37,14 @@
     <p>
         <input type="checkbox" id="available" name="available" <?php
         if(isset($_GET['action']) && $_GET['action'] == 'edit') {
-            echo htmlspecialchars($edit_row['available'] ? 'checked' : null);
+            echo htmlspecialchars($edit_row['available']) ? 'checked' : null;
         }else {
-            echo htmlspecialchars(isset($_POST['available'])  ? $_POST['available'] : null);
+            echo htmlspecialchars(isset($_POST['available'])  ?? $_POST['available']);
         }?>>
         <label for="available">Наличие на складе</label>
     </p>
     <input type="submit" class="btn" name="<?php echo (isset($_GET['action']) && $_GET['action'] == 'edit' ? 'edit-goods' : 'add-goods'); ?>" value="<?php echo (isset($_GET['action']) && $_GET['action'] == 'edit' ? 'Сохранить' : 'Добавить товар'); ?>">
 </form>
+<?php echo print_r2($edit_row); ?>
+<?php echo print_r2($_POST); ?>
+
