@@ -39,12 +39,12 @@ if (isset($_POST['add-goods'],$_POST['price'],$_POST['title'],$_POST['descriptio
             `manufacturer`   = '". mysqli_real_escape_string($link, trim($_POST['manufacturer'])) ."',
             `code`           = ". (int)$_POST['code'] .",
             `image`          = '". mysqli_real_escape_string($link, trim($_POST['image'])) ."',
-            `img-width`    = ". (int)$_POST['image-width'] .",
-            `img-height`   = ". (int)$_POST['image-height'] .",
-            `available`   = ". (int)$available ."
+            `img-width`      = ". (int)$_POST['image-width'] .",
+            `img-height`     = ". (int)$_POST['image-height'] .",
+            `available`      = ". (int)$available ."
             ") or exit(mysqli_error($link));
         $_SESSION['info'] = 'Новая запись добавлена';
-        header('location: /index.php?module=goods&page=add_goods_to_db');
+        header('Location: /index.php?module=goods&page=add_goods_to_db');
         exit;
     }
 }

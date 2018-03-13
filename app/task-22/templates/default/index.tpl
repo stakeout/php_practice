@@ -90,8 +90,8 @@ else { ?>
 <main class="page-content">
     <?php include $_GET['module'].'/'.$_GET['page'].'.tpl'; ?>
 </main>
-  <?php
-  if(!isset($_GET['auth'])) { ?>
+<?php
+if(!isset($_GET['auth'])) { ?>
 <footer class="page-footer">
     <div class="footer-main">
       <div class="container">

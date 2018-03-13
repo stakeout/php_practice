@@ -10,7 +10,7 @@ function select_parse($arr, $name, $default_value='', $selected_value) {
 
     foreach($arr as $key => $value){
         if (isset($selected_value)) {
-            $selected = ($value == $selected_value) ? 'selected' : null;
+            $selected = ($value == $selected_value) ? 'selected' : null +;
         }
         $html .= '<option value="' .$value. '" '.$selected.'>' .$value. '</option>';
     }
@@ -19,6 +19,7 @@ function select_parse($arr, $name, $default_value='', $selected_value) {
 
     return $html;
 }
+
 function print_r2($val){
     echo '<pre>';
     print_r($val);
